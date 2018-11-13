@@ -34,6 +34,15 @@ namespace com.iiosworld.service.webapi.TestServer.Controllers
 
             return GenerateIds(pNumIds);
         }
+        [HttpGet("{pUniqueId}")]
+        public UniqueIdentifier Get(UniqueIdentifier pUniqueId)
+        {
+            return GenerateId(pUniqueId.IdValue);
+        }
+        private UniqueIdentifier GenerateId(string pUId)
+        {
+            return new UniqueIdentifier(pUId);
+        }
         private IEnumerable<UniqueIdentifier> GenerateIds(int pNumIds)
         {
             UniqueIdentifier[] newIds = new UniqueIdentifier[pNumIds];
