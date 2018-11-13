@@ -5,9 +5,7 @@ namespace com.iiosworld.service.webapi.models
     public class UniqueIdentifier
     {
         private string _idValue = null;
-        private const string EMSG_UID_NO_OVERWRITE = @"Cannot overwrite an existing unique identifier for an object.";
-        private const string EMSG_UID_PARSE_ERR = @"Error encountered trying to parse the parameter 'pUniqueIdentifier' for constructor, check inner the Exception for details.";
-
+ 
         public UniqueIdentifier()
         {
             if(this._idValue==null)
@@ -26,13 +24,13 @@ namespace com.iiosworld.service.webapi.models
                 catch (Exception originEx)
                 {
 
-                    throw new ArgumentException(EMSG_UID_PARSE_ERR, originEx);
+                    throw new ArgumentException(Resources.emsg_uid_parse_err, originEx);
                 }
                 
             }
             else
             {
-                throw new ArgumentException(EMSG_UID_NO_OVERWRITE);
+                throw new ArgumentException(Resources.emsg_uid_no_overwrite);
             }
         }
         public string IdValue { get => _idValue; }
