@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.CSharp;
 
 namespace com.iiosworld.service.webapi.models
 {
@@ -24,13 +25,13 @@ namespace com.iiosworld.service.webapi.models
                 catch (Exception originEx)
                 {
 
-                    throw new ArgumentException(Resources.emsg_uid_parse_err, originEx);
+                    throw new ArgumentException(Resources.ResourceManager.GetString(@"emsg_uid_parse_err"), originEx);
                 }
                 
             }
             else
             {
-                throw new ArgumentException(Resources.emsg_uid_no_overwrite);
+                throw new ArgumentException(Resources.ResourceManager.GetString(@"emsg_uid_no_overwrite"));
             }
         }
         public string IdValue { get => _idValue; }
